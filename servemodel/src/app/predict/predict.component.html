@@ -1,0 +1,48 @@
+<div class="jumbotron">
+<div class="container-fluid">
+  <h1>Predict Classes</h1>
+  <h3>Define Iris</h3>
+<form>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputSepalLength">Sepal Length</label>
+      <input [(ngModel)]="iris.sepalLength" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="inputSepalLength" placeholder="Enter Sepal Length of Iris">
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="inputSepalWidth">Sepal Width</label>
+      <input [(ngModel)]="iris.sepalWidth" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="inputSepalWidth" placeholder="Enter Sepal Width of Iris">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputPetalLength">Petal Length</label>
+      <input [(ngModel)]="iris.petalLength" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="inputPetalLength" placeholder="Enter Petal Length of Iris">
+    </div>
+
+    <div class="from-group col-md-6">
+      <label for="inputPetalWidth">Petal Width</label>
+      <input [(ngModel)]="iris.petalWidth" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="inputPetalWidth" placeholder="Enter Petal Width of Iris">
+    </div>
+  </div>
+
+  <button (click)="predictIris()" type="submit" class="btn btn-success">Predict</button>
+</form>
+  <!-- Pie char for prediction , 
+       -->
+  <ngx-charts-pie-chart *ngIf="prediction"
+      [view]="view"
+      [scheme]="colorScheme"
+      [results]="prediction"
+      [legend]="showLegend"
+      [explodeSlices]="explodeSlices"
+      [labels]="showLabels"
+      [doughnut]="doughnut"
+      [gradient]="gradient"
+      [animations]="animations"
+      [trimLabels]="trimLabels"
+      (select)="onSelect($event)">
+    </ngx-charts-pie-chart>
+</div>
+</div>

@@ -1,0 +1,25 @@
+<div class="jumbotron">
+<div class="container-fluid">
+  <h1>Train Classification Model</h1>
+  <h3>Set Parameter for Model Training</h3>
+    <form>
+      <div class="form-group">
+        <label for="parameter">C Parameter :</label>
+        <input type="number" class="form-control" id="cpara" 
+        placeholder="Enter Value of C Parameter" [(ngModel)]="svcParameter.C" [ngModelOptions]="{standalone: true}">
+      </div>
+      <button type="submit" class="btn btn-success" (click)="trainModel()">Train Model</button>
+    </form>
+
+    <div class="alert alert-info result" *ngIf="svcResult">
+      <!-- Bar for accuracy result -->
+      <div class="progress">
+        <div class="progress-bar progress-bar-success" [ngStyle]="{'width': positive | percent }" >{{positive | percent}}</div>
+        <div class="progress-bar progress-bar-danger" [ngStyle]="{'width': negative | percent }" ></div>
+      </div>
+
+      <h2>Training Accuracy</h2>
+      <h3>{{svcResult.accuracy}} %</h3>
+    </div>
+</div>
+</div>
